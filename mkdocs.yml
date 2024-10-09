@@ -1,0 +1,39 @@
+site_name: Cosine
+repo_url: https://github.com/2pisoftware/cmfive-core
+edit_uri: https://github.com/2pisoftware/cosine-docs
+site_description: Open source modular MVC PHP framework
+plugins:
+  - section-index
+  - search
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
+  font: Open Sans
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+  features:
+    - navigation.expand
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+  markdown_extensions:
+    - admonition
+    - pymdownx.details
+    - pymdownx.highlight
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+          alternate_style: true

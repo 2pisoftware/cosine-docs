@@ -1,0 +1,26 @@
+name: Build to GH Pages
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-python@v5
+              with:
+                python-version: 3.x
+                
+            - run: python3 -m pip install -r requirements.txt
+            
+            - run: mkdocs build
+
+            # TODO: once this is deployed to the real site, uncomment
+            # - run: echo cmfive.com >> site/CNAME
+
+            - name: Deploy to pages
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                folder: site
