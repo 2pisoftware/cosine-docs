@@ -21,7 +21,7 @@ You should now be able to make changes to the documentation and see them rendere
 
 ### Guidelines
 
-- Write content for the public. The scope of this site is specifically for information regarding the two Cosine repos [cmfive-core](https://github.com/2pisoftware/cmfive-core) and [cmfive-boilerplate](https://github.com/2pisoftware/cmfive-boilerplate). Do not include information for content outside these, such as other 2pi repositories.
+- Write content for the public. The scope of this site is specifically for information regarding the two Cosine repos [cmfive-core](https://github.com/2pisoftware/cmfive-core) and [cmfive-boilerplate](https://github.com/2pisoftware/cmfive-boilerplate). Do not include information for content outside these, such as other 2piSoftware repositories.
 - Write assuming knowledge of the language and problem domain. Do not include information such as *common* PHP syntax, for example control structures like for loops or if statements.
 - Cosine is Cosine. Despite the repositories being named Cmfive, please use the name Cosine when writing here unless writing specifically about one of the two repos.
 - Make content searchable. Make use of specific headings and language such that users can find content using the search bar. I.e. mention the components or problem specifically instead of as a general idea.
