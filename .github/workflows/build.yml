@@ -3,9 +3,19 @@ on:
     push:
         branches:
             - main
+    workflow_dispatch:
+
+permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+concurrency:
+    group: "pages"
+    cancel-in-progress: false
 
 jobs:
-    deploy:
+    build:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
@@ -13,14 +23,28 @@ jobs:
               with:
                 python-version: 3.x
                 
-            - run: python3 -m pip install -r requirements.txt
-            
-            - run: mkdocs build
+            - name: build
+              id: build
+              run: |
+                python3 -m pip install -r requirements.txt
+                mkdocs build
 
             # TODO: once this is deployed to the real site, uncomment
             # - run: echo cmfive.com >> site/CNAME
 
-            - name: Deploy to pages
-              uses: JamesIves/github-pages-deploy-action@v4
+            - name: Upload artifact
+              id: deployment
+              uses: actions/upload-pages-artifact@v3
               with:
-                folder: site
+                path: site/
+    
+    deploy:
+        runs-on: ubuntu-latest
+        needs: build
+        environment: 
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
+        steps:
+            - name: Deploy to pages
+              id: deployment
+              uses: actions/deploy-pages@v4
